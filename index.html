@@ -6,8 +6,7 @@
     <title>VocabHelper Support</title>
     <meta
       name="description"
-      content="Support page for VocabHelper with contact information and frequently asked questions."
-    />
+      content="Support page for VocabHelper with contact information and frequently asked questions." />
     <style>
       :root {
         color-scheme: light;
@@ -26,9 +25,12 @@
 
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background:
-          radial-gradient(circle at top, rgba(47, 111, 237, 0.12), transparent 32%),
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: radial-gradient(
+            circle at top,
+            rgba(47, 111, 237, 0.12),
+            transparent 32%
+          ),
           var(--bg);
         color: var(--text);
         line-height: 1.6;
@@ -101,9 +103,75 @@
         gap: 16px;
       }
 
-      .faq-item h3 {
-        margin: 0 0 6px;
+      .faq-search {
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 14px 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: #fbfcff;
+        color: var(--text);
+        font: inherit;
+        outline: none;
+      }
+
+      .faq-search:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 4px rgba(47, 111, 237, 0.12);
+      }
+
+      .faq-item {
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: #fbfcff;
+        overflow: hidden;
+      }
+
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 18px 20px;
         font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: '+';
+        font-size: 1.4rem;
+        line-height: 1;
+        color: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .faq-item[open] summary::after {
+        content: '−';
+      }
+
+      .faq-answer {
+        padding: 0 20px 18px;
+      }
+
+      .faq-answer p {
+        margin: 0;
+      }
+
+      .faq-empty {
+        display: none;
+        margin: 0;
+        padding: 16px 2px 0;
+      }
+
+      .faq-empty.visible {
+        display: block;
       }
 
       footer {
@@ -132,7 +200,8 @@
         <h1>VocabHelper Support</h1>
         <p>
           Help for VocabHelper, the vocabulary learning app for building,
-          organizing, and practicing words with quizzes, listening, and AI-assisted tools.
+          organizing, and practicing words with quizzes, listening, and
+          AI-assisted tools.
         </p>
       </section>
 
@@ -140,8 +209,8 @@
         <section class="card" aria-labelledby="contact-title">
           <h2 id="contact-title">Contact</h2>
           <p>
-            For support requests, bug reports, billing questions, or App Store review
-            inquiries, contact us by email.
+            For support requests, bug reports, billing questions, or App Store
+            review inquiries, contact us by email.
           </p>
           <a class="contact-link" href="mailto:vocabhelperfree@gmail.com">
             vocabhelperfree@gmail.com
@@ -150,51 +219,251 @@
 
         <section class="card" aria-labelledby="faq-title">
           <h2 id="faq-title">FAQ</h2>
+          <input
+            id="faq-search"
+            class="faq-search"
+            type="search"
+            placeholder="Search FAQ"
+            aria-label="Search FAQ" />
           <div class="faq-list">
-            <div class="faq-item">
-              <h3>How do I add new words?</h3>
-              <p>
-                Open a category in the app, then use the add button to create a new
-                word with translation, examples, and optional notes.
-              </p>
-            </div>
+            <details class="faq-item" open>
+              <summary>How do I add new words?</summary>
+              <div class="faq-answer">
+                <p>
+                  Open a category in the app, then use the add button to create
+                  a new word with translation, examples, and optional notes.
+                </p>
+              </div>
+            </details>
 
-            <div class="faq-item">
-              <h3>Can I import or export my vocabulary?</h3>
-              <p>
-                Yes. VocabHelper supports CSV import and export so you can move
-                vocabulary in or out of the app.
-              </p>
-            </div>
+            <details class="faq-item">
+              <summary>Can I edit or delete a word later?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. Open the saved word entry to update its translation,
+                  examples, tags, or notes, or remove it if you no longer need
+                  it.
+                </p>
+              </div>
+            </details>
 
-            <div class="faq-item">
-              <h3>Do I need an account?</h3>
-              <p>
-                You can use core features locally, but signing in is required for
-                cloud sync and some account-based functionality.
-              </p>
-            </div>
+            <details class="faq-item">
+              <summary>Can I import or export my vocabulary?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. VocabHelper supports CSV import and export so you can
+                  move vocabulary in or out of the app.
+                </p>
+              </div>
+            </details>
 
-            <div class="faq-item">
-              <h3>What are AI credits used for?</h3>
-              <p>
-                AI credits are used for AI-powered features such as generated words
-                and some listening or language assistance workflows.
-              </p>
-            </div>
+            <details class="faq-item">
+              <summary>Do I need an account?</summary>
+              <div class="faq-answer">
+                <p>
+                  You can use core features locally, but signing in is required
+                  for cloud sync and some account-based functionality.
+                </p>
+              </div>
+            </details>
 
-            <div class="faq-item">
-              <h3>What should I include in a support email?</h3>
-              <p>
-                Include your device model, OS version, app version, and a short
-                description of the issue so we can reproduce it faster.
-              </p>
-            </div>
+            <details class="faq-item">
+              <summary>How does sync work across devices?</summary>
+              <div class="faq-answer">
+                <p>
+                  When you are signed in, your supported data can be synced
+                  through your account so your vocabulary stays available on
+                  multiple devices.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What are AI credits used for?</summary>
+              <div class="faq-answer">
+                <p>
+                  AI credits are used for AI-powered features such as generated
+                  words and some listening or language assistance workflows.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Why is audio or listening not working?</summary>
+              <div class="faq-answer">
+                <p>
+                  Check your device volume, silent mode, network connection, and
+                  any app permissions related to audio playback or speech
+                  features.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How does Listening mode work?</summary>
+              <div class="faq-answer">
+                <p>
+                  Listening mode plays your saved words and phrases so you can
+                  review pronunciation, repeat them, and practice more
+                  passively.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Why is Listening mode not working?</summary>
+              <div class="faq-answer">
+                <p>
+                  Check your volume, silent mode, selected language, and
+                  network connection. Some speech features may also be limited
+                  on certain devices.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>How do quizzes work?</summary>
+              <div class="faq-answer">
+                <p>
+                  Quizzes help you review saved vocabulary by testing
+                  recognition and recall of the words you have added to the
+                  app.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Can I quiz words from a specific category?</summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. You can select one or more categories before starting a
+                  quiz so the session focuses on the vocabulary you want to
+                  practice.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What is Learn New Words?</summary>
+              <div class="faq-answer">
+                <p>
+                  Learn New Words is an AI-assisted feature that suggests new
+                  vocabulary based on your settings, level, and selected
+                  interests.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Why can&apos;t I generate more words in Learn New Words?
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  This can happen if you are out of AI credits, temporarily
+                  offline, or the request fails because of a temporary service
+                  error.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What is speech to text used for?</summary>
+              <div class="faq-answer">
+                <p>
+                  Speech to text converts spoken input into text for supported
+                  voice-driven features and pronunciation-related workflows.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>Why is speech to text not working?</summary>
+              <div class="faq-answer">
+                <p>
+                  Make sure microphone permission is enabled, your device
+                  supports the selected language, and your connection is stable
+                  if the feature needs online processing.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                Why did I reach a speech or text-to-speech limit?
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Some speech features depend on device or app usage limits. If
+                  you keep hitting the limit, contact support with your device
+                  details.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What should I do if the app crashes or freezes?</summary>
+              <div class="faq-answer">
+                <p>
+                  Force close the app, reopen it, and make sure you are on the
+                  latest version. If the issue continues, include the exact
+                  action that caused it when you contact support.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                How do I request deletion of my account or data?
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Send a support request from the email associated with your
+                  account and mention that you want your account or stored data
+                  deleted.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary>What should I include in a support email?</summary>
+              <div class="faq-answer">
+                <p>
+                  Include your device model, OS version, app version, and a
+                  short description of the issue so we can reproduce it faster.
+                </p>
+              </div>
+            </details>
           </div>
+          <p id="faq-empty" class="faq-empty">
+            No FAQ items match your search.
+          </p>
         </section>
       </div>
 
       <footer>VocabHelper Support</footer>
     </main>
+    <script>
+      const faqSearchInput = document.getElementById('faq-search');
+      const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+      const faqEmptyState = document.getElementById('faq-empty');
+
+      faqSearchInput.addEventListener('input', event => {
+        const query = event.target.value.trim().toLowerCase();
+        let visibleCount = 0;
+
+        faqItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          const matches = !query || text.includes(query);
+
+          item.style.display = matches ? '' : 'none';
+          if (matches) {
+            visibleCount += 1;
+          }
+        });
+
+        faqEmptyState.classList.toggle('visible', visibleCount === 0);
+      });
+    </script>
   </body>
 </html>
